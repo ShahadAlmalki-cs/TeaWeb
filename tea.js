@@ -23,10 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // تفعيل الأيقونات
     if (window.lucide) lucide.createIcons();
 
-    // نجهز الكروت قبل بدء الأنيميشن (نزيحها لليمين وهي مخفية أصلاً من الـ CSS)
     gsap.set(".tea-card", { x: 50 });
 
     const tl = gsap.timeline();
@@ -46,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("teaModal");
     const modalContent = document.querySelector(".modal-content");
 
-    // فتح المودال
     document.querySelectorAll(".tea-card").forEach(card => {
         card.addEventListener("click", () => {
             const data = teas[card.dataset.tea];
@@ -68,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // إغلاق المودال
     document.querySelector(".close-btn").onclick = () => {
         gsap.to(modalContent, { 
             scale: 0.8,  
