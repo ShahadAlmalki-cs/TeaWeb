@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
     const teas = {
         lavender: {
             title: "شاي اللافندر",
@@ -44,35 +43,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("teaModal");
     const modalContent = document.querySelector(".modal-content");
 
-    document.querySelectorAll(".tea-card").forEach(card => {
-        card.addEventListener("click", () => {
-            const data = teas[card.dataset.tea];
-            if (!data) return;
-
-            document.getElementById("teaTitle").textContent = data.title;
-            document.getElementById("teaStory").textContent = data.story;
-            
-            const list = document.getElementById("teaBenefits");
-            list.innerHTML = "";
-            data.benefits.forEach(b => {
-                const li = document.createElement("li");
-                li.textContent = "✦ " + b;
-                list.appendChild(li);
-            });
-
-            modal.style.display = "flex";
-            gsap.fromTo(modalContent, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4 });
+    function openModal(data) {
+        document.getElementById("teaTitle").textContent = data.title;
+        document.getElementById("teaStory").textContent = data.story;
+        const list = document.getElementById("teaBenefits");
+        list.innerHTML = "";
+        data.benefits.forEach(b => {
+            const li = document.createElement("li");
+            li.textContent = "✦ " + b;
+            list.appendChild(li);
         });
-    });
 
-    document.querySelector(".close-btn").onclick = () => {
+        modal.style.display = "flex";
+        gsap.fromTo(modalContent, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4 });
+        // move focus to dialog for accessibility
+        modalContent.setAttribute('tabindex', '-1');
+        modalContent.focus();
+    }
+
+    function closeModal() {
         gsap.to(modalContent, { 
             scale: 0.8,  
             opacity: 0, 
             duration: 0.3, 
             onComplete: () => modal.style.display = "none" 
         });
-    };
+    }
+
+    document.querySelectorAll(".tea-card").forEach(card => {
+        card.addEventListener("click", () => {
+            const data = teas[card.dataset.tea];
+            if (!data) return;
+            openModal(data);
+        });
+    });
+
+    const closeBtn = document.querySelector(".close-btn");
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    // close on ESC
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+    });
+
+    // close on click outside content
+    if (modal) {
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+    }
 });
-
-
