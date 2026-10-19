@@ -9,24 +9,12 @@
 
 ---
 
-## تشغيل محلي سريع
-أسهل طريقة لعرض الموقع محليًا من مجلد المشروع:
+# 🍵 Shahad's Tea Corner
 
-```bash
-# من داخل مجلد المشروع
-python -m http.server 8000
-# ثم افتح
-http://localhost:8000
-```
+A minimal, interactive web experience exploring tea flavors, benefits, and a short quiz to match your mood with a tea blend.
 
-أو فقط افتح `index.html` و `quiz.html` في المتصفح.
+### Features
+- Interactive showcase of tea varieties with calm aesthetics.
+- Quick personality quiz to discover your tea match.
+- Clean, responsive Arabic (RTL) interface.
 
-## ما الذي غيّرته الآن
-- صحّحت مشكلة في `quiz.js` (منع إنشاء متغيرات عالمية غير مقصودة) وحسّنت إخراج النتيجة مع أيقونة.
-- أضفت تحسينات للمودال في `tea.js`: إغلاق بالنقر خارج المحتوى، إغلاق بمفتاح Escape، وتحسين وصول لوحة التركيز.
-- استبدلت زر الإغلاق بعنصر `button` مع `aria-label` في `index.html` لتحسين قابلية الوصول.
-
-## اقتراحات لاحقة
-- إضافة زر مشاركة للنتيجة كصورة.
-- حفظ النتائج في `localStorage` لعرض تاريخ المستخدم.
-- إضافة README مُفصّل مع لقطات شاشة إن رغبت.
