@@ -24,7 +24,7 @@
 
   <div class="quiz-card">
 
-    <label for="q1">لو صار عندك وقت فراغ غير متوقّع</label>
+    <label>لو صار عندك وقت فراغ غير متوقّع</label>
     <select id="q1">
       <option value="">اختر</option>
       <option value="calm">أجلس بهدوء وأفصل عن العالم</option>
@@ -33,7 +33,7 @@
       <option value="energy">أطلع أو أغيّر جو</option>
     </select>
 
-    <label for="q2">أي أجواء تريحك أكثر؟</label>
+    <label>أي أجواء تريحك أكثر؟</label>
     <select id="q2">
       <option value="">اختر</option>
       <option value="nature">طبيعة وهواء مفتوح</option>
@@ -42,7 +42,7 @@
       <option value="cozy">غرفة بسيطة ومريحة</option>
     </select>
 
-    <label for="q3">كيف تتعامل مع الضغط؟</label>
+    <label>كيف تتعامل مع الضغط؟</label>
     <select id="q3">
       <option value="">اختر</option>
       <option value="slow">أهدأ وأمشي الأمور على مهل</option>
@@ -51,20 +51,11 @@
       <option value="ignore">أتجاهله لين يخف</option>
     </select>
 
-    <div class="actions">
-      <button id="submitBtn" class="primary">اعرف النكهة</button>
-      <button id="shareBtn" class="secondary" style="display:none;">مشاركة النتيجة</button>
-    </div>
+    <button onclick="showResult()">اعرف النكهة </button>
 
-    <div class="result" aria-live="polite">
-      <span class="result-icon" id="resultIcon" aria-hidden="true"></span>
+    <div class="result">
+      <span class="result-icon" id="resultIcon"></span>
       <span class="result-text" id="resultText"></span>
-    </div>
-
-    <div class="history">
-      <h3>سجل النتائج</h3>
-      <ul id="historyList"></ul>
-      <button id="clearHistory" class="link">مسح السجل</button>
     </div>
 
   </div>
