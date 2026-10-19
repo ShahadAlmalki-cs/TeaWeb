@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#F7FBFF"/>
+  <rect width="240" height="700" fill="#FFF2E6"/>
+  <text x="60" y="160" font-size="120">🍑</text>
+  <text x="260" y="220" font-size="48" font-family="Reem Kufi, sans-serif" fill="#2b3a33">اختبار نكهة الشاي</text>
+  <text x="260" y="280" font-size="20" fill="#556">اختر إجاباتك البسيطة لمعرفة النكهة الأنسب لك</text>
+</svg>
